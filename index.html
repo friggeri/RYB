@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>RYB generator</title>
+    <style>
+      * {
+        font-family:Lucida Grande;
+        margin:0;
+        padding:0;
+      }
+      #header {
+        background:#333;
+        margin:0;
+        color:white;
+        box-sizing:border-box;
+        padding:20px;
+        font-size:22px;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        z-index:5;
+      }
+      .right {
+        float:right;
+      }
+      body {
+        padding:89px 256px 18px;
+        background:#f0f0f0;
+      }
+      #number-colors {
+        border-radius: 3px;
+        border: 1px solid #a6a6a6;
+        border-bottom: 1px solid #999999;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 1;
+        padding: 6px 8px 6px 8px;
+        text-align: center;
+        text-shadow: 0 1px 0 #909090;
+        width:64px;
+      }
+      #number-colors:focus{
+        outline: none;
+      }
+      button {
+        background-color: #7fbf4d;
+        background-image: -webkit-linear-gradient(top, #7fbf4d, #63a62f);
+        background-image: linear-gradient(top, #7fbf4d, #63a62f);
+        border: 1px solid #63a62f;
+        border-bottom: 1px solid #5b992b;
+        border-radius: 3px;
+        box-shadow: inset 0 1px 0 0 #96ca6d;
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 1;
+        padding: 7px 16px 8px 16px;
+        text-align: center;
+        text-shadow: 0 -1px 0 #4c9021;
+      }
+      button:hover  { 
+        background-color: #76b347;
+        background-image: -webkit-linear-gradient(top, #76b347, #5e9e2e);
+        background-image: linear-gradient(top, #76b347, #5e9e2e);
+        box-shadow: inset 0 1px 0 0 #8dbf67;
+        cursor: pointer;
+      }
+      button:active { 
+        border: 1px solid #5b992b;
+        border-bottom: 1px solid #538c27;
+        box-shadow: inset 0 0 8px 4px #548c29; 
+      }
+      button:disabled, button:hover:disabled, button:active:disabled {
+        background-color: #BF4D4D;
+    
+        background-image: -webkit-linear-gradient(top, #BF4D4D, #A62E2E);
+        background-image: linear-gradient(top, #BF4D4D, #A62E2E);
+        border: 1px solid #A62E2E;
+        border-bottom: 1px solid #992B2B;
+        box-shadow: inset 0 1px 0 0 #C96D6D;
+        text-shadow: 0 -1px 0 #8F2621;
+        opacity:0.5;
+      }
+      .color {
+        float:left;
+        width:48px;
+        height:48px;
+        margin:4px;
+        box-shadow:-1px -1px 0 rgba(150, 150, 150, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);
+        border-radius:2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      RYB Generator
+      <div class="right">
+        <input type="number" id="number-colors" value="20"/>
+        <button id="generate">Generate</button>
+      </div>
+    </div>
+    <div id="colors">
+    </div>
+  </body>
+  <script src="ryb.js"></script>
+</html>
+  
