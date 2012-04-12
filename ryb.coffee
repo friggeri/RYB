@@ -1,6 +1,4 @@
-cbrt = (x) -> 
-  (if x < 0 then - 1 else 1) * Math.pow(Math.abs(x), 1/3)
-
+## RYB colorspace
 RYB = 
   white:  [1,1,1]
   red:    [1,0,0]
@@ -35,7 +33,9 @@ class Points extends Array
     @plength = 0
   
   distance: (p1) ->
-    [0..2].map((i) => Math.pow(p1[i] - @picked[i], 2)).reduce((a,b) -> a+b)
+    [0..2].map((i) => 
+      Math.pow(p1[i] - @picked[i], 2)
+    ).reduce((a,b) -> a+b)
     
   pick: () ->
     unless @picked?
@@ -50,6 +50,8 @@ class Points extends Array
       @picked = [0..2].map((i) => (@plength * @picked[i] + pick[i])/(@plength+1))
       @plength++
     return pick
+
+# Interface stuff, no need to use jQuery here
 
 generate     = document.getElementById('generate')
 numberColors = document.getElementById('number-colors')
