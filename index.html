@@ -21,12 +21,15 @@
         left:0;
         width:100%;
         z-index:5;
+        padding-right:200px;
       }
       .right {
         float:right;
       }
       body {
-        padding:89px 256px 18px;
+        padding:89px 0 18px;
+        width:392px;
+        margin:0 auto;
         background:#f0f0f0;
       }
       #number-colors {
@@ -91,17 +94,90 @@
         box-shadow:-1px -1px 0 rgba(150, 150, 150, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);
         border-radius:2px;
       }
+      .color:hover {
+        position:relative;
+        top:-24px;
+        left:-24px;
+        width:96px;
+        height:96px;
+        margin:4px -44px -44px 4px;
+        box-shadow:0 0 8px rgba(0, 0, 0, 0.5);
+      }
+      .color .info {
+        display:none;
+        width:64px;
+        height:64px;
+        background:rgba(250, 250, 250, 0.8);
+        padding:6px 8px;
+        box-sizing:border-box;
+        margin:16px;
+        box-shadow:-1px -1px 0 rgba(150, 150, 150, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5);
+        border-radius:1px;
+      }
+      .color .info .value {
+        display:inline-block;
+        width:30px;
+        text-align:right;
+      }
+      .color:hover .info {
+        display:block;
+      }
+      #footer {
+        clear:both;
+        font-size:11px;
+        text-align:center;
+        padding-top:48px;
+        color:#888;
+      }
+      a {
+        color:#888;
+        text-decoration:none;
+      }
+      a:hover {
+        color:#333;
+      }
+      #intro{
+        padding:18px 4px 18px;
+        text-align:justify;
+        font-size:14px;
+      }
+      #intro p + p{
+        margin-top:18px;
+      }
+      #buttons {
+        margin-bottom:18px;
+        padding:0 4px;
+        text-align:center;
+      }
     </style>
   </head>
   <body>
+    <a href="http://github.com/afriggeri/RYB"><img style="z-index:999; position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
     <div id="header">
       RYB Generator
-      <div class="right">
-        <input type="number" id="number-colors" min="2" value="20"/>
-        <button id="generate">Generate</button>
-      </div>
     </div>
+    <div id="intro">
+      <p><span 
+      style="display:inline-block;margin-left:-6px">⎡n<sup>⅓</sup>⎤<sup style="d
+      isplay:inline-block;margin-left:-6px">3</sup></span> colors are 
+      generated, of which the n first are displayed. Each new color is chosen 
+      to maximize its euclidian distance to the previously selected ones.</p>
+
+      <p>Those colors can be used in when in need of colors which are visually 
+      different from one another. The generator uses the <a 
+      href="http://threekings.tk/mirror/ryb_TR.pdf">RYB model</a> by Gossett 
+      <em>et al.</em></p>
+
+    </div>
+    <div id="buttons">
+      <input type="number" id="number-colors" min="2" value="21"/>
+      <button id="generate">Generate</button>
+    </div>
+    
     <div id="colors">
+    </div>
+    <div id="footer">
+      &copy; 2012 <a href="http://friggeri.net">Adrien Friggeri</a>
     </div>
   </body>
   <script src="ryb.js"></script>

@@ -35,6 +35,7 @@ Points = (function(_super) {
   function Points(number) {
     var base, n, _i, _ref;
     base = Math.ceil(Math.pow(number, 1 / 3));
+    console.log(base);
     for (n = _i = 0, _ref = Math.pow(base, 3); 0 <= _ref ? _i < _ref : _i > _ref; n = 0 <= _ref ? ++_i : --_i) {
       this.push([Math.floor(n / (base * base)) / (base - 1), Math.floor(n / base % base) / (base - 1), Math.floor(n % base) / (base - 1)]);
     }
@@ -104,8 +105,8 @@ generateColors = function() {
     color = "rgb(" + r + ", " + g + ", " + b + ")";
     el = document.createElement("div");
     el.setAttribute("class", "color");
-    el.setAttribute("title", color);
     el.style.backgroundColor = color;
+    el.innerHTML = "<div class=\"info\">\n  <div>R <span class=\"value\">" + r + "</span></div>\n  <div>G <span class=\"value\">" + g + "</span></div>\n  <div>B <span class=\"value\">" + b + "</span></div>\n</div>";
     _results.push(display.appendChild(el));
   }
   return _results;

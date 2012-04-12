@@ -25,6 +25,7 @@ RYB =
 class Points extends Array
   constructor: (number) ->
     base  = Math.ceil(Math.pow(number, 1/3))
+    console.log base
     @push [
       Math.floor( n / (base*base) ) / (base-1), 
       Math.floor( n / base % base ) / (base-1), 
@@ -69,8 +70,13 @@ generateColors = () ->
     el = document.createElement "div"
 
     el.setAttribute "class", "color"
-    el.setAttribute "title", color
     el.style.backgroundColor = color
+    el.innerHTML = """<div class="info">
+      <div>R <span class="value">#{r}</span></div>
+      <div>G <span class="value">#{g}</span></div>
+      <div>B <span class="value">#{b}</span></div>
+    </div>
+    """
     display.appendChild el
 
 generate.addEventListener 'click', generateColors
