@@ -14,6 +14,7 @@
         margin:0;
         color:white;
         box-sizing:border-box;
+        -moz-box-sizing:border-box;
         padding:20px;
         font-size:22px;
         position:fixed;
@@ -47,45 +48,6 @@
       #number-colors:focus{
         outline: none;
       }
-      button {
-        background-color: #7fbf4d;
-        background-image: -webkit-linear-gradient(top, #7fbf4d, #63a62f);
-        background-image: linear-gradient(top, #7fbf4d, #63a62f);
-        border: 1px solid #63a62f;
-        border-bottom: 1px solid #5b992b;
-        border-radius: 3px;
-        box-shadow: inset 0 1px 0 0 #96ca6d;
-        color: #fff;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 1;
-        padding: 7px 16px 8px 16px;
-        text-align: center;
-        text-shadow: 0 -1px 0 #4c9021;
-      }
-      button:hover  { 
-        background-color: #76b347;
-        background-image: -webkit-linear-gradient(top, #76b347, #5e9e2e);
-        background-image: linear-gradient(top, #76b347, #5e9e2e);
-        box-shadow: inset 0 1px 0 0 #8dbf67;
-        cursor: pointer;
-      }
-      button:active { 
-        border: 1px solid #5b992b;
-        border-bottom: 1px solid #538c27;
-        box-shadow: inset 0 0 8px 4px #548c29; 
-      }
-      button:disabled, button:hover:disabled, button:active:disabled {
-        background-color: #BF4D4D;
-    
-        background-image: -webkit-linear-gradient(top, #BF4D4D, #A62E2E);
-        background-image: linear-gradient(top, #BF4D4D, #A62E2E);
-        border: 1px solid #A62E2E;
-        border-bottom: 1px solid #992B2B;
-        box-shadow: inset 0 1px 0 0 #C96D6D;
-        text-shadow: 0 -1px 0 #8F2621;
-        opacity:0.5;
-      }
       .color {
         float:left;
         width:48px;
@@ -110,6 +72,7 @@
         background:rgba(250, 250, 250, 0.8);
         padding:6px 8px;
         box-sizing:border-box;
+        -moz-box-sizing:border-box;
         margin:16px;
         box-shadow:-1px -1px 0 rgba(150, 150, 150, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5);
         border-radius:1px;
@@ -148,6 +111,7 @@
         margin-bottom:18px;
         padding:0 4px;
         text-align:center;
+        font-weight:bold;
       }
     </style>
   </head>
@@ -171,8 +135,7 @@
 
     </div>
     <div id="buttons">
-      <input type="number" id="number-colors" min="2" value="21"/>
-      <button id="generate">Generate</button>
+      Generate <input type="number" id="number-colors" min="2" value="21"/> colors.
     </div>
     
     <div id="colors">

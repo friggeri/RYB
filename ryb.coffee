@@ -53,7 +53,6 @@ class Points extends Array
 
 # Interface stuff, no need to use jQuery here
 
-generate     = document.getElementById('generate')
 numberColors = document.getElementById('number-colors')
 display      = document.getElementById('colors')
 
@@ -81,7 +80,6 @@ generateColors = () ->
     """
     display.appendChild el
 
-generate.addEventListener 'click', generateColors
 numberColors.addEventListener 'input', generateColors
 numberColors.addEventListener 'submit', generateColors
 
