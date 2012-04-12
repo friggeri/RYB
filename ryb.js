@@ -38,29 +38,25 @@ Points = (function(_super) {
     for (n = _i = 0, _ref = Math.pow(base, 3); 0 <= _ref ? _i < _ref : _i > _ref; n = 0 <= _ref ? ++_i : --_i) {
       this.push([Math.floor(n / (base * base)) / (base - 1), Math.floor(n / base % base) / (base - 1), Math.floor(n % base) / (base - 1)]);
     }
-    this.picked = [];
+    this.picked = null;
+    this.plength = 0;
   }
 
   Points.prototype.distance = function(p1) {
-    return this.picked.map(function(p2) {
-      return [0, 1, 2].map(function(i) {
-        return Math.pow(p1[i] - p2[i], 2);
-      }).reduce(function(a, b) {
-        return a + b;
-      });
+    var _this = this;
+    return [0, 1, 2].map(function(i) {
+      return Math.pow(p1[i] - _this.picked[i], 2);
     }).reduce(function(a, b) {
       return a + b;
     });
   };
 
-  Points.prototype.pick = function(point) {
+  Points.prototype.pick = function() {
     var index, pick, _, _ref,
       _this = this;
-    if (point == null) {
-      point = null;
-    }
-    if (point == null) {
-      pick = this.shift();
+    if (this.picked == null) {
+      pick = this.picked = this.shift();
+      this.plength = 1;
     } else {
       _ref = this.reduce(function(_arg, p2, i2) {
         var d1, d2, i1;
@@ -73,8 +69,11 @@ Points = (function(_super) {
         }
       }, [0, this.distance(this[0])]), index = _ref[0], _ = _ref[1];
       pick = this.splice(index, 1)[0];
+      this.picked = [0, 1, 2].map(function(i) {
+        return (_this.plength * _this.picked[i] + pick[i]) / (_this.plength + 1);
+      });
+      this.plength++;
     }
-    this.picked.push(pick);
     return pick;
   };
 

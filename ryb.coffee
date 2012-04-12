@@ -30,21 +30,24 @@ class Points extends Array
       Math.floor( n / base % base ) / (base-1), 
       Math.floor( n % base        ) / (base-1)
     ] for n in [0...Math.pow(base, 3)]
-    @picked = []
+    @picked  = null
+    @plength = 0
   
   distance: (p1) ->
-    @picked.map((p2) -> [0..2].map((i) -> Math.pow(p1[i] - p2[i], 2)).reduce((a,b) -> a+b)).reduce((a,b) -> a+b)
+    [0..2].map((i) => Math.pow(p1[i] - @picked[i], 2)).reduce((a,b) -> a+b)
     
-  pick: (point=null) ->
-    unless point?
-      pick = @shift()
+  pick: () ->
+    unless @picked?
+      pick = @picked  = @shift()
+      @plength = 1
     else
       [index, _] = @reduce ([i1, d1], p2, i2) =>
         d2 = @distance(p2)
         if d1 < d2 then [i2, d2] else [i1, d1]
       , [0, @distance(this[0])]
       pick = @splice(index, 1)[0]
-    @picked.push(pick)
+      @picked = [0..2].map((i) => (@plength * @picked[i] + pick[i])/(@plength+1))
+      @plength++
     return pick
 
 generate     = document.getElementById('generate')
