@@ -1,0 +1,1 @@
+Color generator adapted from *Nathan Gossett and Baoquan Chen, Paint Inspired Color Mixing and Compositing for Visualization, IEEE InfoVis 2004, Austin, Texas, Oct 10-12, 2004* [Technical Report](http://threekings.tk/mirror/ryb_TR.pdf)
